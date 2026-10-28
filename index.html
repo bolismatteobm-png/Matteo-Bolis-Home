@@ -104,6 +104,26 @@ p { margin: 0; }
 .brand-name { font-family: var(--display); font-weight: 800; font-size: 1.15rem; letter-spacing: -.01em; }
 .nav-links { display: flex; align-items: center; gap: 22px; }
 .nav-links a { text-decoration: none; font-weight: 600; font-size: .95rem; }
+.menu-btn {
+  display: none; align-items: center; justify-content: center; gap: 4px; width: 44px; height: 38px; padding: 0;
+  border: var(--stroke); border-radius: 999px; background: var(--paper); color: var(--ink); cursor: pointer; box-shadow: 3px 3px 0 var(--ink);
+}
+.menu-btn i { width: 6px; height: 6px; border-radius: 50%; background: var(--ink); transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
+.menu-btn[aria-expanded="true"] { background: var(--ink); }
+.menu-btn[aria-expanded="true"] i { background: var(--paper); }
+.mobile-menu {
+  position: absolute; right: var(--gutter-r); top: calc(100% + 10px); z-index: 25; min-width: 210px;
+  display: grid; gap: 4px; padding: 10px; border: var(--stroke); border-radius: 18px; background: var(--paper);
+  box-shadow: var(--shadow); transform-origin: top right; animation: menu-in .25s cubic-bezier(.34,1.56,.64,1);
+}
+.mobile-menu a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 14px; border-radius: 12px; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 1.15rem; letter-spacing: -.01em; color: var(--ink); }
+.mobile-menu a::after { content: "→"; font-family: var(--mono); font-size: .9rem; opacity: .5; }
+.mobile-menu a:hover, .mobile-menu a:focus-visible { background: var(--yellow); }
+.mobile-menu a:nth-child(2):hover, .mobile-menu a:nth-child(2):focus-visible { background: var(--coral); }
+.mobile-menu a:nth-child(3):hover, .mobile-menu a:nth-child(3):focus-visible { background: var(--blue); color: var(--on-blue); }
+@keyframes menu-in { from { opacity: 0; transform: scale(.85) rotate(-3deg); } to { opacity: 1; transform: none; } }
+.nav .wrap { position: relative; }
+@media (min-width: 641px) { .mobile-menu { display: none !important; } }
 .nav-links a:not(.btn):hover { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 5px; text-decoration-color: var(--coral); }
 
 .lang {
@@ -509,7 +529,7 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
   .brand-mark { width: 36px; }
   .nav-links { gap: 12px; }
   .nav-links a:not(.btn) { display: none; }
-  .nav-links a[href="#work"] { display: inline; font-size: .9rem; }
+  .menu-btn { display: inline-flex; }
   .nav-links .btn { padding: 7px 12px; font-size: .85rem; }
   .lang button { padding: 4px 8px; }
 
@@ -615,7 +635,15 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
       <a href="#about">About</a>
       <a href="#path">Path</a>
       <a class="btn" href="#contact">Say hi</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><i></i><i></i><i></i></button>
     </nav>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="#work">Work</a>
+      <a href="#how">How I work</a>
+      <a href="#about">About</a>
+      <a href="#path">Path</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
 </header>
 
@@ -1062,5 +1090,18 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
 })();
 </script>
 
+
+<script>
+(function () {
+  var btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu');
+  if (!btn || !menu) return;
+  function open(v) { menu.hidden = !v; btn.setAttribute('aria-expanded', v); btn.setAttribute('aria-label', v ? 'Close menu' : 'Open menu'); }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); open(menu.hidden); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) open(false); });
+  document.addEventListener('click', function (e) { if (!menu.hidden && !menu.contains(e.target)) open(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { open(false); btn.focus(); } });
+  addEventListener('resize', function () { if (innerWidth > 640) open(false); });
+})();
+</script>
 </body>
 </html>
