@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Matteo Bolis — aspiring product manager. Oriri, AI automation at ADHOC Solutions, AI agents.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Matteo Bolis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout concept: a pop sticker-book. Thick ink outlines, hard offset shadows,
+   full-bleed color bands, oversized type that leans a few degrees off-axis.
+   Single deliberate light look (paper + ink), every color set explicitly. */
+:root {
+  --paper: #F6F3EC;
+  --ink: #121212;
+  --blue: #2B4CFF;
+  --coral: #FF5A47;
+  --yellow: #E4FF3A;
+  --muted: #55545C;
+  --line: rgba(18, 18, 18, .14);
+  --on-blue: #F6F3EC;
+
+  --display: "Bricolage Grotesque", "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --stroke: 3px solid var(--ink);
+  --shadow: 6px 6px 0 var(--ink);
+  --shadow-sm: 4px 4px 0 var(--ink);
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  color-scheme: light;
+}
+
+/* ---------- Language ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html.intro-lock { overflow: hidden; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper);
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+
+.wrap {
+  max-width: 1180px; margin: 0 auto;
+  padding-left: var(--gutter-l); padding-right: var(--gutter-r);
+}
+.eyebrow {
+  font-family: var(--mono); font-size: .78rem; font-weight: 500;
+  letter-spacing: .08em; text-transform: uppercase;
+}
+
+/* ---------- Logo ---------- */
+.logo { display: block; width: 100%; height: auto; overflow: visible; }
+#mb .bubble { fill: var(--coral); stroke: var(--ink); stroke-width: 4; stroke-linejoin: round; }
+#mb .spark { fill: var(--yellow); stroke: var(--ink); stroke-width: 3; }
+#mb text { fill: var(--ink); font-family: var(--display); font-weight: 800; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--paper); border-bottom: var(--stroke);
+}
+.nav .wrap {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding-block: 12px;
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-mark { width: 42px; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+.brand:hover .brand-mark { transform: rotate(-10deg) scale(1.08); }
+.brand-name { font-family: var(--display); font-weight: 800; font-size: 1.15rem; letter-spacing: -.01em; }
+.nav-links { display: flex; align-items: center; gap: 22px; }
+.nav-links a { text-decoration: none; font-weight: 600; font-size: .95rem; }
+.nav-links a:not(.btn):hover { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 5px; text-decoration-color: var(--coral); }
+
+.lang {
+  display: inline-flex; border: 2px solid var(--ink); border-radius: 999px; overflow: hidden;
+  font-family: var(--mono); font-size: .78rem; font-weight: 500; background: var(--paper);
+}
+.lang button {
+  font: inherit; border: 0; background: transparent; color: var(--ink);
+  padding: 5px 10px; cursor: pointer; letter-spacing: .06em;
+}
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--body); font-weight: 700; font-size: .95rem;
+  padding: 10px 18px; border: var(--stroke); border-radius: 999px;
+  background: var(--yellow); color: var(--ink); text-decoration: none;
+  box-shadow: var(--shadow-sm); cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.btn.alt { background: var(--paper); }
+.btn.blue { background: var(--blue); color: var(--on-blue); }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; padding-block: clamp(32px, 5vw, 64px) clamp(30px, 4.5vw, 56px); }
+.hero .wrap { position: relative; }
+.hero-title { display: grid; gap: .12em; font-size: clamp(2.5rem, 8.4vw, 7.2rem); font-weight: 800; letter-spacing: -.035em; }
+.hl {
+  display: inline-block; width: fit-content; max-width: 100%;
+  padding: .04em .2em .1em; border: var(--stroke); box-shadow: var(--shadow);
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.hl-yellow { background: var(--yellow); transform: rotate(-1.5deg); }
+.hl-coral { background: var(--coral); transform: rotate(1deg); margin-left: clamp(0px, 6vw, 90px); }
+.hl-blue { background: var(--blue); color: var(--on-blue); transform: rotate(-.8deg); margin-left: clamp(0px, 12vw, 180px); }
+.hl:hover { transform: rotate(0) scale(1.02); }
+
+.hero-sticker {
+  position: absolute; right: var(--gutter-r); top: -8px; width: clamp(96px, 13vw, 170px);
+  transform: rotate(12deg); filter: drop-shadow(6px 6px 0 var(--ink));
+  animation: bob 5s ease-in-out infinite;
+}
+@keyframes bob { 50% { transform: rotate(-6deg) translateY(-8px); } }
+
+.hero-foot {
+  margin-top: clamp(32px, 5vw, 56px);
+  display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px; align-items: end;
+}
+.hero-intro { font-size: clamp(1.08rem, 1.6vw, 1.3rem); max-width: 56ch; }
+.hero-intro strong { background: linear-gradient(transparent 62%, var(--yellow) 62%); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 26px; }
+.portrait { margin: 0; position: relative; justify-self: end; width: min(320px, 100%); transform: rotate(2.5deg); transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+.portrait:hover { transform: rotate(0) scale(1.02); }
+.portrait .frame { position: relative; aspect-ratio: 4 / 5; max-width: 100%; border: var(--stroke); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); background: var(--blue); }
+.portrait .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.portrait-badge { position: absolute; z-index: 2; left: -30px; top: -30px; width: clamp(72px, 9vw, 104px); transform: rotate(-12deg); filter: drop-shadow(4px 4px 0 var(--ink)); animation: bob 5s ease-in-out infinite; }
+.portrait figcaption {
+  position: absolute; z-index: 2; right: -14px; bottom: 22px; transform: rotate(-4deg);
+  font-family: var(--display); font-weight: 800; font-size: 1.05rem; letter-spacing: -.01em;
+  padding: 6px 14px; border: var(--stroke); border-radius: 999px; background: var(--yellow); color: var(--ink); box-shadow: var(--shadow-sm);
+}
+.status {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 18px;
+  font-family: var(--mono); font-size: .82rem; padding: 6px 12px;
+  border: 2px solid var(--ink); border-radius: 999px; background: var(--paper);
+}
+.status::before {
+  content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--coral); border: 2px solid var(--ink);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse { 50% { transform: scale(1.35); } }
+
+/* ---------- Proof strip ---------- */
+.proof { margin-top: clamp(32px, 5vw, 52px); padding-top: 22px; border-top: var(--stroke); display: flex; flex-wrap: wrap; align-items: center; gap: 14px 16px; }
+.proof .eyebrow { color: var(--muted); flex-basis: 100%; }
+.badge {
+  display: inline-grid; gap: 2px; padding: 10px 16px 11px; border: var(--stroke); border-radius: 14px;
+  box-shadow: var(--shadow-sm); text-decoration: none; color: var(--ink); background: var(--paper);
+  transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .15s ease;
+}
+.badge small { font-family: var(--mono); font-size: .68rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+.badge b { font-family: var(--display); font-weight: 800; font-size: clamp(1.05rem, 1.6vw, 1.25rem); letter-spacing: -.01em; line-height: 1.1; }
+.badge.b1 { background: var(--yellow); transform: rotate(-1.5deg); }
+.badge.b2 { background: var(--coral); transform: rotate(1deg); }
+.badge.b3 { background: var(--blue); color: var(--on-blue); transform: rotate(-.8deg); }
+.badge.b4 { background: var(--ink); color: var(--paper); transform: rotate(1.4deg); box-shadow: 4px 4px 0 var(--coral); }
+a.badge:hover { transform: rotate(0) translate(-2px, -2px); }
+
+/* ---------- Ticker ---------- */
+.ticker { background: var(--ink); color: var(--paper); border-block: var(--stroke); overflow: hidden; }
+.ticker-track { display: flex; width: max-content; animation: slide 36s linear infinite; }
+.ticker-track span {
+  font-family: var(--display); font-weight: 700; font-size: clamp(1.1rem, 2.4vw, 1.7rem);
+  padding: 14px 22px; white-space: nowrap; display: inline-flex; align-items: center; gap: 22px;
+}
+.ticker-track span::after { content: "✶"; color: var(--yellow); }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* ---------- Sections ---------- */
+section { scroll-margin-top: 80px; }
+.section { padding-block: clamp(44px, 6.5vw, 84px); }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 28px; margin-bottom: clamp(28px, 4vw, 48px); }
+.section-head h2 { font-size: clamp(2.2rem, 6vw, 4.6rem); font-weight: 800; letter-spacing: -.03em; }
+.section-head p { max-width: 46ch; color: var(--muted); }
+
+/* ---------- Work ---------- */
+.cases { display: grid; gap: 28px; }
+.case {
+  border: var(--stroke); box-shadow: var(--shadow); border-radius: 22px;
+  padding: clamp(22px, 3.4vw, 40px);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: clamp(20px, 4vw, 48px);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.case:hover { transform: translate(-3px, -3px); box-shadow: 10px 10px 0 var(--ink); }
+.case.coral { background: var(--coral); }
+.case.blue { background: var(--blue); color: var(--on-blue); }
+.case.yellow { background: var(--yellow); }
+.case.paper { background: var(--paper); }
+.case.ink { background: var(--ink); color: var(--paper); box-shadow: 6px 6px 0 var(--coral); }
+.case.ink:hover { box-shadow: 10px 10px 0 var(--coral); }
+.case.ink .pm-tags span { border-color: var(--paper); }
+.case-code { grid-column: 1 / -1; min-width: 0; border: 3px solid var(--paper); border-radius: 14px; overflow: hidden; background: #0B0B0D; }
+.case-code .chrome { display: flex; align-items: center; gap: 10px; padding: 9px 14px; border-bottom: 2px solid rgba(246,243,236,.18); font-family: var(--mono); font-size: .78rem; color: #A39C90; }
+.case-code .chrome i { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+.case-code .chrome i:nth-child(1) { background: var(--coral); } .case-code .chrome i:nth-child(2) { background: var(--yellow); } .case-code .chrome i:nth-child(3) { background: var(--blue); }
+.case-code .chrome span { margin-left: 6px; color: var(--paper); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.case-code pre { display: grid; margin: 0; padding: 14px 0; overflow-x: auto; font-family: var(--mono); font-size: clamp(.74rem, 1.05vw, .88rem); line-height: 1.65; color: #DAD3C8; }
+.case-code .l { display: block; padding: 0 18px; white-space: pre-wrap; }
+.case-code .l.hl { background: rgba(255, 90, 71, .16); box-shadow: inset 4px 0 0 var(--coral); }
+.case-code .k { color: var(--yellow); }
+.case-meta { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.case h3 { font-size: clamp(2rem, 4.4vw, 3.4rem); font-weight: 800; letter-spacing: -.03em; }
+.case-role { font-weight: 600; }
+.pm-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.pm-tags span {
+  font-family: var(--mono); font-size: .72rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em;
+  padding: 3px 9px; border: 2px solid currentColor; border-radius: 999px;
+}
+.stat { margin-top: auto; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.stat b { font-family: var(--display); font-size: clamp(3.4rem, 8vw, 6rem); font-weight: 800; line-height: .9; letter-spacing: -.04em; }
+.stat > span { max-width: 24ch; font-weight: 600; line-height: 1.3; }
+.case-body { display: grid; gap: 16px; min-width: 0; align-content: start; }
+.case-row {
+  display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 14px;
+  padding-top: 14px; border-top: 2px solid currentColor;
+}
+.case-row:first-child { border-top: 0; padding-top: 0; }
+.case-row .eyebrow { padding-top: 4px; }
+.case-row b { font-weight: 700; }
+.case-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.case-links a {
+  font-family: var(--mono); font-size: .82rem; font-weight: 500; text-decoration: none;
+  padding: 6px 12px; border: 2px solid var(--ink); border-radius: 999px;
+  background: var(--paper); color: var(--ink);
+}
+.case-links a:hover { background: var(--ink); color: var(--paper); }
+
+.case-photo { grid-column: 1 / -1; position: relative; margin: 0; min-width: 0; }
+.case-photo .frame {
+  position: relative; border: var(--stroke); border-radius: 16px; overflow: hidden;
+  aspect-ratio: 21 / 9; max-width: 100%; background: var(--paper); box-shadow: var(--shadow-sm);
+}
+.case-photo .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.case-photo figcaption {
+  position: absolute; left: 12px; bottom: 12px; z-index: 2;
+  font-family: var(--mono); font-size: .76rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em;
+  padding: 4px 10px; border: 2px solid var(--ink); border-radius: 999px; background: var(--paper); color: var(--ink);
+}
+.sticker-card {
+  position: absolute; z-index: 3; right: clamp(10px, 3vw, 28px); top: -26px;
+  width: clamp(78px, 12vw, 138px); height: auto; border: var(--stroke); border-radius: 10px;
+  box-shadow: var(--shadow-sm); transform: rotate(6deg); background: var(--paper);
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.case:hover .sticker-card { transform: rotate(-3deg) scale(1.05); }
+
+/* ---------- How I work ---------- */
+.how { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; counter-reset: how; }
+.how li {
+  list-style: none; counter-increment: how; display: grid; gap: 10px; align-content: start;
+  border: var(--stroke); border-radius: 18px; padding: 20px; background: var(--paper); min-width: 0;
+}
+.how ol { margin: 0; padding: 0; display: contents; }
+.how li::before {
+  content: "0" counter(how); font-family: var(--mono); font-size: .8rem; font-weight: 500;
+  width: fit-content; padding: 2px 9px; border: 2px solid var(--ink); border-radius: 999px; background: var(--yellow);
+}
+.how li:nth-child(2)::before { background: var(--coral); }
+.how li:nth-child(3)::before { background: var(--blue); color: var(--on-blue); }
+.how li:nth-child(4)::before { background: var(--ink); color: var(--paper); }
+.how h3 { font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em; }
+.how p { font-size: .95rem; color: var(--muted); line-height: 1.45; }
+
+/* ---------- About ---------- */
+.about { background: var(--yellow); border-block: var(--stroke); }
+.about-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+.about-story { display: grid; gap: 18px; font-size: clamp(1.05rem, 1.5vw, 1.22rem); max-width: 60ch; }
+.about-story .lead { font-family: var(--display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.15; letter-spacing: -.02em; }
+.facts { background: var(--paper); border: var(--stroke); box-shadow: var(--shadow); border-radius: 18px; padding: 8px 22px; transform: rotate(1deg); }
+.facts dl { margin: 0; }
+.fact { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 12px; padding-block: 14px; border-top: 1px solid var(--line); }
+.fact:first-child { border-top: 0; }
+.fact dt { font-family: var(--mono); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.fact dd { margin: 0; font-weight: 600; line-height: 1.4; }
+
+/* ---------- Path ---------- */
+.path { position: relative; display: grid; gap: 0; border-top: var(--stroke); padding-left: 40px; }
+.path-rail {
+  position: absolute; left: 8px; top: 0; bottom: 0; width: 10px;
+  border: 2px solid var(--ink); border-top: 0; border-radius: 0 0 999px 999px; background: var(--paper);
+}
+.path-fill {
+  position: absolute; left: -2px; right: -2px; top: 0; height: var(--p, 0%);
+  background: var(--coral); border: 2px solid var(--ink); border-top: 0; border-radius: 0 0 999px 999px;
+}
+.path-fill::after {
+  content: ""; position: absolute; left: 50%; bottom: -9px; width: 18px; height: 18px; transform: translateX(-50%);
+  border-radius: 50%; background: var(--yellow); border: 3px solid var(--ink); box-shadow: 2px 2px 0 var(--ink);
+}
+.step { position: relative; }
+.step::before {
+  content: ""; position: absolute; left: -27px; top: 50%; width: 14px; height: 14px; transform: translate(-50%, -50%) scale(.85);
+  border-radius: 50%; background: var(--paper); border: 2.5px solid var(--ink); z-index: 1;
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1), background .2s ease;
+}
+.step.on::before { background: var(--ink); transform: translate(-50%, -50%) scale(1); }
+.step.on time { color: var(--ink); }
+.step {
+  display: grid; grid-template-columns: 150px minmax(0, 1fr) auto; gap: 20px; align-items: center;
+  padding-block: 20px; border-bottom: 2px solid var(--ink);
+  transition: background .2s ease, padding .2s ease;
+}
+.step:hover { background: var(--yellow); padding-left: 10px; }
+.step time { font-family: var(--mono); font-size: .86rem; font-weight: 500; }
+.step h3 { font-size: clamp(1.2rem, 2.2vw, 1.6rem); font-weight: 700; letter-spacing: -.01em; line-height: 1.15; }
+.step p { color: var(--muted); font-size: .95rem; margin-top: 4px; }
+.tag {
+  font-family: var(--mono); font-size: .74rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em;
+  padding: 4px 10px; border: 2px solid var(--ink); border-radius: 999px; white-space: nowrap;
+}
+.tag.work { background: var(--coral); }
+.tag.study { background: var(--yellow); }
+.tag.build { background: var(--blue); color: var(--on-blue); }
+.tag.cert { background: var(--paper); }
+.tag.win { background: var(--ink); color: var(--paper); }
+
+/* ---------- Toolkit ---------- */
+.toolkit { background: var(--blue); color: var(--on-blue); border-block: var(--stroke); }
+.toolkit .section-head p { color: var(--on-blue); opacity: .85; }
+.kit { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 28px); }
+.kit-card {
+  display: flex; flex-direction: column; gap: 14px; min-width: 0;
+  border: var(--stroke); border-radius: 20px; padding: clamp(20px, 2.6vw, 28px);
+  background: var(--paper); color: var(--ink); box-shadow: var(--shadow);
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.kit-card.k-people { transform: rotate(-1deg); }
+.kit-card.k-product { transform: rotate(.6deg); }
+.kit-card.k-tech { transform: rotate(-.4deg); }
+.kit-card:hover { transform: rotate(0) translate(-3px, -3px); }
+.kit-card .eyebrow { width: fit-content; padding: 3px 10px; border: 2px solid var(--ink); border-radius: 999px; }
+.k-people .eyebrow { background: var(--coral); }
+.k-product .eyebrow { background: var(--yellow); }
+.k-tech .eyebrow { background: var(--blue); color: var(--on-blue); }
+.kit-card h3 { font-size: clamp(1.4rem, 2.2vw, 1.8rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.08; }
+.kit-card ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.kit-card li { font-weight: 600; padding: 9px 0; border-top: 1px solid var(--line); }
+.kit-card li:first-child { border-top: 0; }
+.kit-card li small { font-family: var(--mono); font-weight: 500; font-size: .72rem; margin-left: 6px; padding: 1px 7px; border: 1.5px solid var(--ink); border-radius: 999px; }
+.proof-line { margin-top: auto; padding-top: 12px; border-top: 2px solid var(--ink); font-family: var(--mono); font-size: .78rem; line-height: 1.45; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 14px; }
+.chip {
+  font-family: var(--display); font-weight: 700; font-size: clamp(1rem, 1.8vw, 1.3rem);
+  padding: 12px 20px; border: var(--stroke); border-radius: 999px;
+  background: var(--paper); color: var(--ink); box-shadow: var(--shadow-sm);
+  transition: transform .25s cubic-bezier(.34,1.56,.64,1), background .2s ease;
+}
+.chip small { font-family: var(--mono); font-weight: 500; font-size: .7em; margin-left: 6px; color: var(--muted); }
+.chip:nth-child(3n+1):hover { background: var(--yellow); transform: rotate(-4deg) scale(1.05); }
+.chip:nth-child(3n+2):hover { background: var(--coral); transform: rotate(3deg) scale(1.05); }
+.chip:nth-child(3n):hover { background: var(--yellow); transform: rotate(-2deg) scale(1.05); }
+.langs { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px 28px; font-family: var(--mono); font-size: .9rem; }
+.langs b { font-family: var(--display); font-size: 1.15rem; margin-right: 6px; }
+
+/* ---------- Contact ---------- */
+.contact .big {
+  font-size: clamp(2.6rem, 9vw, 7.6rem); font-weight: 800; letter-spacing: -.04em; line-height: .95;
+  max-width: 14ch;
+}
+.contact .big em { font-style: normal; background: var(--coral); padding: 0 .12em; border: var(--stroke); display: inline-block; transform: rotate(-1.5deg); box-shadow: var(--shadow); }
+.contact-row { margin-top: clamp(32px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.email {
+  display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  font-family: var(--mono); font-size: clamp(.95rem, 2vw, 1.2rem); font-weight: 500;
+  padding: 10px 12px 10px 18px; border: var(--stroke); border-radius: 14px; background: var(--paper);
+  box-shadow: var(--shadow-sm); max-width: 100%;
+}
+.email span { user-select: all; overflow-wrap: anywhere; }
+.copy { font-size: .85rem; padding: 6px 14px; }
+.copy-note { font-family: var(--mono); font-size: .85rem; min-height: 1.4em; margin-top: 12px; }
+
+footer { border-top: var(--stroke); }
+footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-block: 24px calc(24px + env(safe-area-inset-bottom, 0px)); }
+.foot-brand { display: flex; align-items: center; gap: 12px; font-size: .92rem; color: var(--muted); }
+.foot-brand .brand-mark { width: 34px; }
+.linkish { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; cursor: pointer; color: var(--ink); }
+
+/* ---------- Photos ---------- */
+.photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(18px, 3vw, 36px); }
+.photo { margin: 0; position: relative; aspect-ratio: 3 / 4; max-width: 100%; border: var(--stroke); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; background: var(--paper); transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+.photo:nth-child(1) { transform: rotate(-2deg); background: var(--yellow); }
+.photo:nth-child(2) { transform: rotate(1.5deg); background: var(--coral); }
+.photo:nth-child(3) { transform: rotate(-1deg); background: var(--blue); color: var(--on-blue); }
+.photo:nth-child(4) { transform: rotate(2deg); background: var(--paper); }
+.photo:hover { transform: rotate(0) scale(1.03); }
+.photo img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
+.photo .add { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; gap: 6px; font-family: var(--mono); font-size: .8rem; padding: 12px; }
+.photo .add b { font-family: var(--display); font-size: 2.6rem; line-height: 1; }
+.photo figcaption { position: absolute; left: 10px; bottom: 10px; z-index: 2; font-family: var(--mono); font-size: .76rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; padding: 4px 10px; border: 2px solid var(--ink); border-radius: 999px; background: var(--paper); color: var(--ink); }
+
+/* ---------- Intro ---------- */
+.intro {
+  position: fixed; inset: 0; z-index: 100; background: var(--paper);
+  overflow: hidden; transition: transform .75s cubic-bezier(.76,0,.24,1);
+}
+.intro.boot { animation: failsafe 0s linear 9s forwards; }
+@keyframes failsafe { to { visibility: hidden; pointer-events: none; } }
+.intro.is-leaving { transform: translateY(-100%); }
+.intro .stage, .intro .panel { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px max(24px, env(safe-area-inset-right, 0px)) 24px max(24px, env(safe-area-inset-left, 0px)); }
+.intro .line {
+  font-family: var(--display); font-weight: 800; letter-spacing: -.04em; line-height: 1;
+  font-size: clamp(2.6rem, 10vw, 8.5rem); text-align: center;
+}
+.caret { display: inline-block; width: .08em; height: .85em; background: var(--ink); margin-left: .06em; vertical-align: -.05em; animation: blink .8s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.intro .panel { clip-path: inset(0 100% 0 0); transition: clip-path .6s cubic-bezier(.77,0,.18,1); }
+.p-coral { background: var(--coral); }
+.p-blue { background: var(--blue); color: var(--on-blue); }
+.p-yellow { background: var(--yellow); }
+.intro.s2 .p-coral, .intro.s3 .p-blue, .intro.s4 .p-yellow { clip-path: inset(0 0 0 0); }
+.intro .panel .line { opacity: 0; transform: translateY(.3em); transition: opacity .35s ease .3s, transform .45s cubic-bezier(.34,1.56,.64,1) .3s; }
+.intro.s2 .p-coral .line, .intro.s3 .p-blue .line { opacity: 1; transform: none; }
+.intro-brand { display: grid; justify-items: center; gap: 18px; }
+.intro-logo { width: clamp(150px, 26vw, 260px); transform: scale(.2) rotate(-25deg); opacity: 0; transition: transform .7s cubic-bezier(.34,1.7,.64,1) .2s, opacity .2s ease .2s; filter: drop-shadow(8px 8px 0 var(--ink)); }
+.intro.s4 .intro-logo { transform: none; opacity: 1; }
+.intro-name { font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 6vw, 4.4rem); letter-spacing: -.035em; clip-path: inset(0 100% 0 0); transition: clip-path .55s cubic-bezier(.77,0,.18,1); }
+.intro.s5 .intro-name { clip-path: inset(0 0 0 0); }
+.skip {
+  position: absolute; z-index: 5;
+  right: max(20px, env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  font-size: .85rem;
+}
+
+
+/* ---------- Motion layer (scroll reveal, spotlight, magnetic, tilt) ---------- */
+.rv { opacity: 0; translate: 0 28px; filter: blur(8px);
+  transition: opacity .7s cubic-bezier(.2,.7,.2,1) var(--d, 0s), translate .8s cubic-bezier(.2,.7,.2,1) var(--d, 0s), filter .7s ease var(--d, 0s), transform .3s ease, box-shadow .25s ease, background .2s ease; }
+.rv.in { opacity: 1; translate: 0 0; filter: none; }
+.case, .kit-card { position: relative; }
+.case::after, .kit-card::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, .38), transparent 65%);
+  transition: opacity .3s ease;
+}
+.case:hover::after, .kit-card:hover::after { opacity: 1; }
+.case > *, .kit-card > * { position: relative; z-index: 1; }
+.case > .case-photo { z-index: 2; }
+.portrait .frame { transition: transform .4s cubic-bezier(.2,.7,.2,1); transform-style: preserve-3d; }
+.mag { transition: translate .25s cubic-bezier(.2,.7,.2,1), transform .15s ease, box-shadow .15s ease; }
+@media (prefers-reduced-motion: reduce) {
+  .rv { opacity: 1 !important; translate: none !important; filter: none !important; }
+  .case::after, .kit-card::after { display: none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .kit { grid-template-columns: minmax(0, 1fr); }
+  .kit-card, .kit-card.k-people, .kit-card.k-product, .kit-card.k-tech { transform: none; }
+  .how { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .hero-foot, .case, .about-grid { grid-template-columns: minmax(0, 1fr); }
+  .photos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .portrait { order: -1; justify-self: start; width: min(260px, 68%); margin: 8px 0 6px 26px; }
+  .portrait figcaption { right: -18px; }
+  .step { grid-template-columns: minmax(0, 1fr) auto; }
+  .step time { grid-column: 1 / -1; }
+  .facts { transform: none; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; line-height: 1.55; }
+  .nav .wrap { padding-block: 10px; gap: 10px; }
+  .brand-mark { width: 36px; }
+  .nav-links { gap: 12px; }
+  .nav-links a:not(.btn) { display: none; }
+  .nav-links a[href="#work"] { display: inline; font-size: .9rem; }
+  .nav-links .btn { padding: 7px 12px; font-size: .85rem; }
+  .lang button { padding: 4px 8px; }
+
+  .hero { padding-block: 18px 30px; }
+  .portrait-badge { left: -24px; top: -22px; width: 64px; }
+  .hero-title { font-size: clamp(2.1rem, 10.5vw, 3.4rem); gap: .16em; }
+  .hl { box-shadow: 4px 4px 0 var(--ink); border-width: 2.5px; }
+  .hl-coral, .hl-blue { margin-left: 0; }
+  .hero-foot { margin-top: 26px; gap: 20px; }
+  .hero-intro { font-size: 1.05rem; }
+  .status { font-size: .74rem; line-height: 1.35; border-radius: 14px; }
+  .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .hero-actions .btn { justify-content: center; padding-block: 13px; }
+  .ticker-track span { padding: 10px 16px; gap: 16px; }
+
+  .section { padding-block: 40px; }
+  .section-head { margin-bottom: 22px; }
+  .section-head h2 { font-size: clamp(2rem, 10vw, 2.6rem); }
+  .cases { gap: 20px; }
+  .case { padding: 20px 18px; border-radius: 18px; box-shadow: 5px 5px 0 var(--ink); gap: 18px; }
+  .case:hover { transform: none; box-shadow: 5px 5px 0 var(--ink); }
+  .case h3 { font-size: 2.1rem; }
+  .case-photo .frame { aspect-ratio: 4 / 3; }
+  .sticker-card { top: -16px; }
+  .stat b { font-size: 3.2rem; }
+  .case-body { gap: 12px; }
+  .case-row { grid-template-columns: minmax(0, 1fr); gap: 2px; padding-top: 12px; font-size: .95rem; line-height: 1.45; }
+
+  .how { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .how li { padding: 16px; }
+
+  .about-story { gap: 14px; }
+  .facts { padding: 4px 16px; box-shadow: 5px 5px 0 var(--ink); }
+  .fact { grid-template-columns: minmax(0, 1fr); gap: 2px; padding-block: 11px; }
+
+  .photos { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px;
+    margin-inline: calc(-1 * var(--gutter-l)) calc(-1 * var(--gutter-r));
+    padding: 6px var(--gutter-r) 18px var(--gutter-l); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .photos::-webkit-scrollbar { display: none; }
+  .photo { flex: 0 0 68%; scroll-snap-align: center; box-shadow: 5px 5px 0 var(--ink); }
+
+  .step { padding-block: 14px; gap: 6px 14px; }
+  .path { padding-left: 34px; }
+  .path-rail { left: 6px; width: 8px; }
+  .step::before { left: -24px; width: 12px; height: 12px; }
+  .step:hover { padding-left: 0; background: none; }
+  .step h3 { font-size: 1.15rem; }
+  .step p { font-size: .88rem; }
+
+  .chips { gap: 10px; }
+  .chip { font-size: .95rem; padding: 9px 15px; box-shadow: 3px 3px 0 var(--ink); }
+  .langs { margin-top: 24px; }
+
+  .contact .big { font-size: clamp(2.3rem, 12vw, 3.6rem); }
+  .contact-row { flex-direction: column; align-items: stretch; }
+  .email { justify-content: space-between; }
+  .contact-row > .btn { justify-content: center; padding-block: 13px; }
+
+  .intro .line { font-size: clamp(2.2rem, 12vw, 4rem); line-height: 1.02; }
+}
+@media (max-width: 400px) {
+  .brand-name { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .ticker-track { animation: none; }
+}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mb" viewBox="0 0 124 116">
+    <path class="bubble" d="M34 8 H88 A26 26 0 0 1 114 34 V60 A26 26 0 0 1 88 86 H54 L20 108 L32 86 A26 26 0 0 1 8 60 V34 A26 26 0 0 1 34 8 Z"/>
+    <text x="61" y="48" text-anchor="middle" dominant-baseline="central" font-size="42" letter-spacing="-2">MB</text>
+    <circle class="spark" cx="110" cy="12" r="9"/>
+  </symbol>
+</svg>
+
+<div class="intro boot" id="intro" role="dialog" aria-label="Intro animation">
+  <div class="stage"><p class="line"><span data-type>Stay curious.</span><span class="caret" aria-hidden="true"></span></p></div>
+  <div class="panel p-coral"><p class="line">Learn from people.</p></div>
+  <div class="panel p-blue"><p class="line">Build for impact.</p></div>
+  <div class="panel p-yellow">
+    <div class="intro-brand">
+      <svg class="logo intro-logo" viewBox="0 0 124 116" role="img" aria-label="MB logo"><use href="#mb"/></svg>
+      <p class="intro-name">Matteo Bolis</p>
+    </div>
+  </div>
+  <button class="btn alt skip" id="skip" type="button">Skip intro</button>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Matteo Bolis, back to top">
+      <svg class="logo brand-mark" viewBox="0 0 124 116" aria-hidden="true"><use href="#mb"/></svg>
+      <span class="brand-name">Matteo Bolis</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#how">How I work</a>
+      <a href="#about">About</a>
+      <a href="#path">Path</a>
+      <a class="btn" href="#contact">Say hi</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1 class="hero-title">
+        <span class="hl hl-yellow">Stay curious.</span>
+        <span class="hl hl-coral">Learn from people.</span>
+        <span class="hl hl-blue">Build for impact.</span>
+      </h1>
+      <div class="hero-foot">
+        <div>
+          <p class="hero-intro">I'm <strong>Matteo Bolis</strong>, an aspiring product manager. I talk to users until the real problem is clear, then build the simplest thing that solves it. Today: MSc in Innovation &amp; Technology in Milan, AI automation for B2B clients at ADHOC Solutions, and my own startup, Oriri.</p>
+          <span class="status">Innovation &amp; Technology Analyst @ ADHOC Solutions · Co-founder @ Oriri</span>
+          <div class="hero-actions">
+            <a class="btn blue" href="#work">See my work</a>
+            <a class="btn alt" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <figure class="portrait">
+          <div class="frame"><img src="photos/me-dolomites.jpg" alt="Matteo Bolis hiking in the Dolomites"></div>
+          <svg class="logo portrait-badge" viewBox="0 0 124 116" aria-hidden="true"><use href="#mb"/></svg>
+          <figcaption>Hi, I'm Matteo</figcaption>
+        </figure>
+      </div>
+      <div class="proof">
+        <p class="eyebrow">Recognition</p>
+        <a class="badge b1" href="https://www.unicatt.it/uc/conlab-news-dieci-anni-di-conlab-apre-la-nuova-edizione" target="_blank" rel="noopener"><small>Selected for</small><b>ConLab · Cattolica</b></a>
+        <a class="badge b2" href="https://www.milanodigitalweek.com/event/oriri--non-sempre-sai-cosa-cerchi" target="_blank" rel="noopener"><small>On stage at</small><b>Milano Digital Week 2026</b></a>
+        <span class="badge b3"><small>Presented at</small><b>Arbutus Convention 2026</b></span>
+        <a class="badge b4" href="https://secondotempo.cattolicanews.it/news-costruttori-di-futuro-la-sfida-della-pa-passa-anche-dai-banchi-dell-universita" target="_blank" rel="noopener"><small>Winner</small><b>Costruttori di futuro 2025</b></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Product discovery</span><span>User interviews</span><span>Process mapping</span><span>AI automation</span><span>Rapid prototyping</span><span>Data analytics</span><span>Stakeholder management</span>
+      <span>Product discovery</span><span>User interviews</span><span>Process mapping</span><span>AI automation</span><span>Rapid prototyping</span><span>Data analytics</span><span>Stakeholder management</span>
+    </div>
+  </div>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <p>Five projects, from the problem to the result.</p>
+      </div>
+
+      <div class="cases">
+        <article class="case coral">
+          <figure class="case-photo">
+            <div class="frame"><img src="photos/oriri-mdw.jpg" alt="Matteo presenting the Oriri app prototype at Milano Digital Week 2026" style="object-position: 50% 30%"></div>
+            <img class="sticker-card" src="photos/mdw-card.jpg" alt="Milano Digital Week event card: Oriri – Non sempre sai cosa cerchi, 30 Sep 2026">
+            <figcaption>Live demo · Milano Digital Week</figcaption>
+          </figure>
+          <div class="case-meta">
+            <p class="eyebrow">My startup · Co-founder · Apr 2026 – now</p>
+            <h3>Oriri</h3>
+            <p class="case-role">One place for every growth and career opportunity a university student could use.</p>
+            <div class="pm-tags"><span>Discovery</span><span>Business model</span><span>Partnerships</span></div>
+            <div class="stat"><b>0→1</b><span>from a hunch to a validated product concept</span></div>
+          </div>
+          <div class="case-body">
+            <div class="case-row"><p class="eyebrow">Problem</p><p>Events, programs and openings for students are scattered across dozens of channels. Most students hear about them too late.</p></div>
+            <div class="case-row"><p class="eyebrow">Discovery</p><p>Validated the problem with qualitative interviews and a survey distributed nationally.</p></div>
+            <div class="case-row"><p class="eyebrow">Product</p><p>Defined the concept and a two-sided model: free for students, paid by universities, companies and event organizers.</p></div>
+            <div class="case-row"><p class="eyebrow">Traction</p><p>Cold outreach to academic advisors and institutional partners. Selected for <b>Milano Digital Week 2026</b>, where I demoed the app prototype live on 30 September.</p></div>
+            <div class="case-row"><p class="eyebrow">ConLab</p><p>Selected for the 10th edition of <b>ConLab</b>, Università Cattolica's startup space: a six-month program of training, one-to-one mentorship and networking with the innovation ecosystem.</p></div>
+            <div class="case-row"><p class="eyebrow">Next</p><p>The matching algorithm, then launch.</p></div>
+            <div class="case-links"><a href="https://www.milanodigitalweek.com/event/oriri--non-sempre-sai-cosa-cerchi" target="_blank" rel="noopener">Milano Digital Week ↗</a><a href="https://www.unicatt.it/uc/conlab-news-dieci-anni-di-conlab-apre-la-nuova-edizione" target="_blank" rel="noopener">ConLab ↗</a></div>
+          </div>
+        </article>
+
+        <article class="case blue">
+          <figure class="case-photo">
+            <div class="frame"><img src="photos/prague.jpg" alt="Matteo presenting at the Arbutus Convention 2026 in Prague" loading="lazy" style="object-position: 50% 32%"></div>
+            <figcaption>Presenting with our CEO · Arbutus Convention, Prague</figcaption>
+          </figure>
+          <div class="case-meta">
+            <p class="eyebrow">Innovation &amp; Technology Analyst · Feb 2026 – now</p>
+            <h3>AI automation for B2B clients</h3>
+            <p class="case-role">Finding the manual work inside a company, then turning it into a solution the client buys.</p>
+            <div class="pm-tags"><span>Process mapping</span><span>Demos</span><span>Stakeholders</span></div>
+            <div class="stat"><b>90%</b><span>of manual steps removed from Gabesco's core processes</span></div>
+          </div>
+          <div class="case-body">
+            <div class="case-row"><p class="eyebrow">Scope</p><p><b>4 clients in 4 sectors</b>: coffee trading, furniture retail, credit data, professional services. Each one starts with learning an unfamiliar business.</p></div>
+            <div class="case-row"><p class="eyebrow">Gabesco</p><p>Mapped <b>6 core processes</b> in 2 on-site visits. Built an Arbutus Analytics demo on the client's own contract and financial data for management. Sold automations that removed about 90% of manual steps.</p></div>
+            <div class="case-row"><p class="eyebrow">Dondi Salotti</p><p>Replaced a fully paper-based signature flow with digital signing. No more print, sign, scan.</p></div>
+            <div class="case-row"><p class="eyebrow">Creditsafe</p><p>Implemented and automated e-invoicing end to end for the Italian operation, from issue to compliant archiving.</p></div>
+            <div class="case-row"><p class="eyebrow">DocLife</p><p>Prepared and ran a partnership negotiation: agenda, positioning against an incumbent consultant, talk track.</p></div>
+          </div>
+        </article>
+
+        <article class="case ink">
+          <div class="case-code" aria-label="Excerpt from the agent's system instructions">
+            <div class="chrome"><i></i><i></i><i></i><span>03_system_instructions_v1_2_final.md · Quality criteria</span></div>
+            <pre><span class="l"><span class="k">###</span> Positive checks</span><span class="l"><span class="k">-</span> A substantive strategy response includes at least one concrete negotiation move.</span><span class="l hl"><span class="k">-</span> A full strategy response includes negotiation fundamentals: interests, BATNA, leverage, tradeable issues, and a possible ZOPA or no-ZOPA warning.</span><span class="l hl"><span class="k">-</span> When formal rights may diverge from practical implementation power, compare both explicitly.</span><span class="l hl"><span class="k">-</span> Cultural recommendations are framed as hypotheses and include a caveat, alternative explanation, or test.</span></pre>
+          </div>
+          <div class="case-meta">
+            <p class="eyebrow">Product Manager · Team of 5 · Università Cattolica · 2026</p>
+            <h3>An AI agent for cross-cultural negotiation</h3>
+            <p class="case-role">A Claude-based negotiation strategist that turns cultural insight into concrete, testable moves.</p>
+            <div class="pm-tags"><span>PRD</span><span>Agent design</span><span>Evaluation</span></div>
+            <div class="stat"><b>29/30</b><span>final project grade, with full marks on the live agent demo</span></div>
+          </div>
+          <div class="case-body">
+            <div class="case-row"><p class="eyebrow">Problem</p><p>Cultural frameworks alone don't make a negotiator. Most "culture tips" stop at stereotypes and never reach a move you can make at the table.</p></div>
+            <div class="case-row"><p class="eyebrow">My role</p><p>Product Manager for a team of five: owned the PRD, kept the knowledge base, system instructions and evaluation aligned, and drove the iterations.</p></div>
+            <div class="case-row"><p class="eyebrow">Built</p><p>Followed a production agent workflow: research, a <b>60+ chunk knowledge base</b> with ~30 sources verified by hand, a PRD with 9 capabilities, and system instructions iterated from v1.0 to v1.2.</p></div>
+            <div class="case-row"><p class="eyebrow">Design</p><p>Negotiation first (interests, BATNA, ZOPA, leverage), culture second. Cultural patterns are treated as hypotheses to test, never as labels for the person across the table.</p></div>
+            <div class="case-row"><p class="eyebrow">Evaluation</p><p>Tested on <b>7 cases</b> across cultural pairs (France–China, France–Japan, US–Indonesia and more). Diagnosed 5 gaps, rewrote the rules, re-ran the case, and documented the weaknesses that remained.</p></div>
+          </div>
+        </article>
+
+        <article class="case yellow">
+          <div class="case-meta">
+            <p class="eyebrow">Built with Lovable · 2026</p>
+            <h3>Two live company websites</h3>
+            <p class="case-role">From blank page to published site, with no formal development background.</p>
+            <div class="pm-tags"><span>Prototyping</span><span>Shipping</span><span>AI tools</span></div>
+            <div class="stat"><b>2</b><span>sites live and in use today</span></div>
+          </div>
+          <div class="case-body">
+            <div class="case-row"><p class="eyebrow">Problem</p><p>ADHOC Solutions and Arbutus Italia needed a complete online presence without a long agency project.</p></div>
+            <div class="case-row"><p class="eyebrow">What I did</p><p>Designed, built and published both sites with Lovable, iterating with the team on content and structure.</p></div>
+            <div class="case-row"><p class="eyebrow">Result</p><p>Both sites are live. Along the way I earned the Lovable L3 Gold certification.</p></div>
+            <div class="case-links">
+              <a href="https://adhocsolutions.it" target="_blank" rel="noopener">adhocsolutions.it ↗</a>
+              <a href="https://arbutusitalia.it" target="_blank" rel="noopener">arbutusitalia.it ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="case paper">
+          <div class="case-meta">
+            <p class="eyebrow">University challenge · Università Cattolica · May 2025</p>
+            <h3>Making public jobs attractive to young people</h3>
+            <p class="case-role">An employer-branding project for the Italian public administration, “Costruttori di futuro”. Our team won.</p>
+            <div class="pm-tags"><span>User research</span><span>Insight → proposal</span><span>Pitch</span></div>
+            <div class="stat"><b>1st</b><span>winning team among the participating groups</span></div>
+          </div>
+          <div class="case-body">
+            <div class="case-row"><p class="eyebrow">Problem</p><p>The public sector loses an estimated 25,000 people a year and its average employee is about 52. Young people rarely see it as a career.</p></div>
+            <div class="case-row"><p class="eyebrow">Research</p><p>The class interviewed 42 public-sector managers on roles and career paths. My team interviewed Luca Manganaro (INPS Milano) and Chiara Bonomo (Comune di Milano).</p></div>
+            <div class="case-row"><p class="eyebrow">Proposal</p><p>Turned the interview insights into communication actions to make public-sector work more attractive to young people.</p></div>
+            <div class="case-row"><p class="eyebrow">Result</p><p>Presented in Piacenza to the city's mayor and senior leaders from the Comune di Piacenza, Comune di Monza and Regione Emilia-Romagna. <b>Our project won.</b></p></div>
+            <div class="case-links"><a href="https://secondotempo.cattolicanews.it/news-costruttori-di-futuro-la-sfida-della-pa-passa-anche-dai-banchi-dell-universita" target="_blank" rel="noopener">CattolicaNews ↗</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How I work</h2>
+        <p>The same loop on every project, from a client's back office to my own startup.</p>
+      </div>
+      <div class="how"><ol>
+        <li><h3>Listen</h3><p>Interviews, surveys, on-site visits. I learn the business before proposing anything.</p></li>
+        <li><h3>Map</h3><p>Draw the process as it really runs and find where time and errors go.</p></li>
+        <li><h3>Build</h3><p>The smallest version that proves the point: a demo on real data, a live site, an MVP.</p></li>
+        <li><h3>Convince</h3><p>Present to the people who decide and get them on board.</p></li>
+      </ol></div>
+    </div>
+  </section>
+
+  <section class="section about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-story">
+        <p class="eyebrow">About</p>
+        <p class="lead">I love new technology. I believe even more in people.</p>
+        <p>When I find a new tool, I want to try it on something real right away: a website, an automation, a demo on a client's data. That's how I learned most of what I know.</p>
+        <p>But the best things I've worked on started with a conversation: a client walking me through a process, a student telling me what she kept missing, a public manager explaining why young people don't apply. I listen first, then build.</p>
+        <p>I'm at the point of choosing my direction, and I know what I'm looking for: people better than me to learn from, and problems where technology changes someone's day.</p>
+      </div>
+      <div class="facts">
+        <dl>
+          <div class="fact"><dt>Studying</dt><dd>MSc Innovation &amp; Technology Management, Università Cattolica, Milan</dd></div>
+          <div class="fact"><dt>Degree</dt><dd>BSc Business Administration, Università Cattolica</dd></div>
+          <div class="fact"><dt>Abroad</dt><dd>Toronto (2024) · London &amp; Liverpool (2016, 2018) · Prague (2026)</dd></div>
+          <div class="fact"><dt>Off hours</dt><dd>Football, running, cycling and tennis. Side projects with new AI tools, and a soft spot for finance.</dd></div>
+          <div class="fact"><dt>Volunteer</dt><dd>10 years with my town's Pro Loco: charity and environmental events</dd></div>
+          <div class="fact"><dt>Based in</dt><dd>Milan, Italy</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="life">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Beyond the desk</h2>
+        <p>A few moments.</p>
+      </div>
+      <div class="photos">
+        <figure class="photo"><img src="photos/toronto.jpg" alt="Matteo in front of the Toronto skyline at night" loading="lazy" style="object-position: 50% 45%"><figcaption>Toronto · 2024</figcaption></figure>
+        <figure class="photo"><img src="photos/football.jpg" alt="Matteo playing competitive football, number 4 in blue" loading="lazy" style="object-position: 50% 58%"><figcaption>On the pitch</figcaption></figure>
+        <figure class="photo"><img src="photos/graduation.jpg" alt="Matteo on graduation day with the laurel wreath" loading="lazy" style="object-position: 40% 30%"><figcaption>Graduation day</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="path">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Path so far</h2>
+        <p>Newest first.</p>
+      </div>
+      <div class="path" id="path-line">
+        <div class="path-rail" aria-hidden="true"><div class="path-fill"></div></div>
+        <div class="step"><time>Oct 2026</time><div><h3>Arbutus Convention, Prague</h3><p>Three days on data analytics · with ADHOC Solutions</p></div><span class="tag work">Event</span></div>
+        <div class="step"><time>Jun 2026</time><div><h3>Product Manager, CCN AI Agent</h3><p>AI negotiation agent built on Claude · team of 5 · Università Cattolica</p></div><span class="tag build">Build</span></div>
+        <div class="step"><time>Apr 2026 – now</time><div><h3>Co-founder, Oriri</h3><p>Pre-launch startup · selected for ConLab, Università Cattolica · presented at Milano Digital Week 2026</p></div><span class="tag build">Build</span></div>
+        <div class="step"><time>Apr 2026</time><div><h3>Lovable L3 Gold</h3><p>AI-assisted development certification</p></div><span class="tag cert">Cert</span></div>
+        <div class="step"><time>Mar 2026</time><div><h3>CAAP Intermediate</h3><p>Certified Arbutus Analytics Professional</p></div><span class="tag cert">Cert</span></div>
+        <div class="step"><time>Feb 2026 – now</time><div><h3>Innovation &amp; Technology Analyst, ADHOC Solutions</h3><p>B2B data analytics and process consulting · part-time</p></div><span class="tag work">Work</span></div>
+        <div class="step"><time>Sep 2025 – Jul 2027</time><div><h3>MSc Innovation &amp; Technology Management</h3><p>Università Cattolica del Sacro Cuore, Milan</p></div><span class="tag study">Study</span></div>
+        <div class="step"><time>May 2025</time><div><h3>Winner, “Costruttori di futuro”</h3><p>Employer-branding challenge for the public administration · Università Cattolica</p></div><span class="tag win">Win</span></div>
+        <div class="step"><time>2024</time><div><h3>Toronto, Canada</h3><p>Three-month full-immersion English program · C1</p></div><span class="tag study">Study</span></div>
+        <div class="step"><time>Jan – Jun 2024</time><div><h3>Business Operations Assistant, ADHOC Solutions</h3><p>Digitized and standardized company records</p></div><span class="tag work">Work</span></div>
+        <div class="step"><time>Sep 2022 – Jul 2025</time><div><h3>BSc Business Administration</h3><p>Università Cattolica del Sacro Cuore, Milan</p></div><span class="tag study">Study</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section toolkit" id="toolkit">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What I bring</h2>
+        <p>Three things I bring to a team, and where I've used them.</p>
+      </div>
+      <div class="kit">
+        <article class="kit-card k-people">
+          <p class="eyebrow">People</p>
+          <h3>Listen, align, convince</h3>
+          <ul><li>User &amp; stakeholder interviews</li><li>Client workshops</li><li>Negotiation</li><li>Presenting to decision makers</li></ul>
+          <p class="proof-line">Interviews for Oriri and Costruttori di futuro · ran a partnership negotiation at ADHOC</p>
+        </article>
+        <article class="kit-card k-product">
+          <p class="eyebrow">Product &amp; business</p>
+          <h3>Find the problem worth solving</h3>
+          <ul><li>Product discovery</li><li>Process mapping</li><li>Business models</li><li>Prioritization</li></ul>
+          <p class="proof-line">6 core processes mapped for a client · two-sided model for Oriri</p>
+        </article>
+        <article class="kit-card k-tech">
+          <p class="eyebrow">Technology</p>
+          <h3>Build it to prove it</h3>
+          <ul><li>Lovable <small>L3 Gold</small></li><li>Claude · ChatGPT</li><li>Arbutus Analytics <small>CAAP</small></li><li>Excel · Python · R</li></ul>
+          <p class="proof-line">2 live websites · AI automations removing ~90% of manual steps</p>
+        </article>
+      </div>
+      <div class="langs">
+        <span><b>IT</b>native</span>
+        <span><b>EN</b>C1</span>
+        <span><b>ES</b>B1</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2 class="big">Let's build something that <em>matters.</em></h2>
+      <div class="contact-row">
+        <div class="email">
+          <span id="email-text">bolismatteo.bm@gmail.com</span>
+          <button class="btn copy" id="copy" type="button">Copy</button>
+        </div>
+        <a class="btn blue" href="https://www.linkedin.com/in/matteo-bolis-" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <p class="copy-note" id="copy-note" aria-live="polite"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">
+      <svg class="logo brand-mark" viewBox="0 0 124 116" aria-hidden="true"><use href="#mb"/></svg>
+      <span>© 2026 Matteo Bolis · Designed and built with AI tools</span>
+    </div>
+    <button class="linkish" id="replay" type="button">Replay intro</button>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var lang = 'en';
+  root.setAttribute('lang', 'en');
+
+  var intro = document.getElementById('intro');
+  var typed = intro.querySelector('[data-type]');
+  var timers = [];
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+  function clearAll() { timers.forEach(clearTimeout); timers = []; }
+
+  function close() {
+    clearAll();
+    intro.classList.add('is-leaving');
+    try { sessionStorage.setItem('mb-intro-seen', '1'); } catch (e) {}
+    later(function () {
+      intro.hidden = true;
+      intro.className = 'intro';
+      root.classList.remove('intro-lock');
+    }, 760);
+  }
+
+  function play() {
+    clearAll();
+    intro.className = 'intro';
+    intro.hidden = false;
+    root.classList.add('intro-lock');
+    var text = lang === 'it' ? 'Resta curioso.' : 'Stay curious.';
+    typed.textContent = '';
+    void intro.offsetWidth;
+    intro.classList.add('s1');
+    for (var i = 0; i < text.length; i++) {
+      (function (n) { later(function () { typed.textContent = text.slice(0, n + 1); }, 120 + n * 55); })(i);
+    }
+    later(function () { intro.classList.add('s2'); }, 1250);
+    later(function () { intro.classList.add('s3'); }, 2400);
+    later(function () { intro.classList.add('s4'); }, 3550);
+    later(function () { intro.classList.add('s5'); }, 4250);
+    later(close, 5400);
+    document.getElementById('skip').focus({ preventScroll: true });
+  }
+
+  intro.classList.remove('boot');
+  var seen = false;
+  try { seen = sessionStorage.getItem('mb-intro-seen') === '1'; } catch (e) {}
+  if (seen || reduce) { intro.hidden = true; } else { play(); }
+
+  document.getElementById('skip').addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !intro.hidden) close(); });
+  document.getElementById('replay').addEventListener('click', function () { window.scrollTo(0, 0); play(); });
+
+  var copyBtn = document.getElementById('copy');
+  var note = document.getElementById('copy-note');
+  var emailText = document.getElementById('email-text');
+
+  /* ---------- Motion layer ---------- */
+  (function motion() {
+    var reduceM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (reduceM) return;
+
+    // Scroll reveal: only for elements below the first screen, so the page is complete at rest.
+    var sel = '.section-head, .case, .how li, .about-story > p, .facts, .photo, .step, .kit-card, .contact .big, .contact-row';
+    var els = [].slice.call(document.querySelectorAll(sel));
+    if ('IntersectionObserver' in window) {
+      var vh = window.innerHeight;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var el = e.target; el.classList.add('in'); io.unobserve(el);
+          setTimeout(function () { el.classList.remove('rv', 'in'); el.style.removeProperty('--d'); }, 1600);
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      els.forEach(function (el) {
+        if (el.getBoundingClientRect().top < vh * 0.95) return;
+        var sibs = el.parentElement ? [].slice.call(el.parentElement.children) : [];
+        var i = Math.max(0, sibs.indexOf(el));
+        el.style.setProperty('--d', Math.min(i, 5) * 0.07 + 's');
+        el.classList.add('rv'); io.observe(el);
+      });
+      setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 12000);
+    }
+
+    if (!fine) return;
+
+    // Spotlight that follows the cursor on cards
+    [].forEach.call(document.querySelectorAll('.case, .kit-card'), function (card) {
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+
+    // Magnetic primary buttons
+    [].forEach.call(document.querySelectorAll('.hero-actions .btn, .contact-row > .btn, .nav-links > .btn'), function (b) {
+      b.classList.add('mag');
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) * 0.22, y = (e.clientY - r.top - r.height / 2) * 0.3;
+        b.style.translate = x.toFixed(1) + 'px ' + y.toFixed(1) + 'px';
+      });
+      b.addEventListener('pointerleave', function () { b.style.translate = ''; });
+    });
+
+    // 3D tilt on the portrait
+    var pf = document.querySelector('.portrait .frame');
+    if (pf) {
+      var host = pf.parentElement;
+      host.addEventListener('pointermove', function (e) {
+        var r = host.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+        pf.style.transform = 'perspective(800px) rotateY(' + (px * 10).toFixed(2) + 'deg) rotateX(' + (-py * 10).toFixed(2) + 'deg)';
+      });
+      host.addEventListener('pointerleave', function () { pf.style.transform = ''; });
+    }
+  })();
+
+  var pathEl = document.getElementById('path-line');
+  var steps = pathEl ? pathEl.querySelectorAll('.step') : [];
+  var ticking = false;
+  function updatePath() {
+    ticking = false;
+    if (!pathEl) return;
+    var r = pathEl.getBoundingClientRect();
+    var mark = window.innerHeight * 0.6;
+    var p = Math.max(0, Math.min(1, (mark - r.top) / r.height));
+    pathEl.style.setProperty('--p', (p * 100).toFixed(2) + '%');
+    for (var i = 0; i < steps.length; i++) {
+      var sr = steps[i].getBoundingClientRect();
+      steps[i].classList.toggle('on', sr.top + sr.height / 2 <= mark);
+    }
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(updatePath); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updatePath();
+
+  copyBtn.addEventListener('click', function () {
+    function select() {
+      var r = document.createRange(); r.selectNodeContents(emailText);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      note.textContent = lang === 'it' ? 'Selezionata. Premi Ctrl+C o ⌘C per copiare.' : 'Selected. Press Ctrl+C or ⌘C to copy.';
+    }
+    try {
+      navigator.clipboard.writeText(emailText.textContent).then(function () {
+        note.textContent = lang === 'it' ? 'Email copiata.' : 'Email copied.';
+      }, select);
+    } catch (e) { select(); }
+  });
+})();
+</script>
+
+</body>
+</html>
