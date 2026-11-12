@@ -24,7 +24,11 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
+<script>try{if(innerWidth<=640||sessionStorage.getItem('mb-intro-seen')==='1'||matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('no-intro')}catch(e){document.documentElement.classList.add('no-intro')}</script>
+<style>.no-intro #intro{display:none!important}</style>
+<link rel="preload" as="image" href="photos/me-dolomites.webp" fetchpriority="high">
 <style>
 /* Layout concept: a pop sticker-book. Thick ink outlines, hard offset shadows,
    full-bleed color bands, oversized type that leans a few degrees off-axis.
@@ -665,7 +669,7 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
           </div>
         </div>
         <figure class="portrait">
-          <div class="frame"><img src="photos/me-dolomites.jpg" alt="Matteo Bolis hiking in the Dolomites"></div>
+          <div class="frame"><img src="photos/me-dolomites.webp" alt="Matteo Bolis hiking in the Dolomites" width="640" height="800" fetchpriority="high" decoding="async"></div>
           <svg class="logo portrait-badge" viewBox="0 0 124 116" aria-hidden="true"><use href="#mb"/></svg>
           <figcaption>Hi, I'm Matteo</figcaption>
         </figure>
@@ -697,8 +701,8 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
       <div class="cases">
         <article class="case coral">
           <figure class="case-photo">
-            <div class="frame"><img src="photos/oriri-mdw.jpg" alt="Matteo presenting the Oriri app prototype at Milano Digital Week 2026" style="object-position: 50% 30%"></div>
-            <img class="sticker-card" src="photos/mdw-card.jpg" alt="Milano Digital Week event card: Oriri – Non sempre sai cosa cerchi, 30 Sep 2026">
+            <div class="frame"><img src="photos/oriri-mdw.webp" loading="lazy" decoding="async" width="1400" height="788" alt="Matteo presenting the Oriri app prototype at Milano Digital Week 2026" style="object-position: 50% 30%"></div>
+            <img class="sticker-card" src="photos/mdw-card.webp" loading="lazy" decoding="async" width="300" height="489" alt="Milano Digital Week event card: Oriri – Non sempre sai cosa cerchi, 30 Sep 2026">
             <figcaption>Live demo · Milano Digital Week</figcaption>
           </figure>
           <div class="case-meta">
@@ -721,7 +725,7 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
 
         <article class="case blue">
           <figure class="case-photo">
-            <div class="frame"><img src="photos/prague.jpg" alt="Matteo presenting at the Arbutus Convention 2026 in Prague" loading="lazy" style="object-position: 50% 32%"></div>
+            <div class="frame"><img src="photos/prague.webp" decoding="async" alt="Matteo presenting at the Arbutus Convention 2026 in Prague" loading="lazy" style="object-position: 50% 32%"></div>
             <figcaption>Presenting with our CEO · Arbutus Convention, Prague</figcaption>
           </figure>
           <div class="case-meta">
@@ -844,9 +848,9 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
         <p>A few moments.</p>
       </div>
       <div class="photos">
-        <figure class="photo"><img src="photos/toronto.jpg" alt="Matteo in front of the Toronto skyline at night" loading="lazy" style="object-position: 50% 45%"><figcaption>Toronto · 2024</figcaption></figure>
-        <figure class="photo"><img src="photos/football.jpg" alt="Matteo playing competitive football, number 4 in blue" loading="lazy" style="object-position: 50% 58%"><figcaption>On the pitch</figcaption></figure>
-        <figure class="photo"><img src="photos/graduation.jpg" alt="Matteo on graduation day with the laurel wreath" loading="lazy" style="object-position: 40% 30%"><figcaption>Graduation day</figcaption></figure>
+        <figure class="photo"><img src="photos/toronto.webp" decoding="async" alt="Matteo in front of the Toronto skyline at night" loading="lazy" style="object-position: 50% 45%"><figcaption>Toronto · 2024</figcaption></figure>
+        <figure class="photo"><img src="photos/football.webp" decoding="async" alt="Matteo playing competitive football, number 4 in blue" loading="lazy" style="object-position: 50% 58%"><figcaption>On the pitch</figcaption></figure>
+        <figure class="photo"><img src="photos/graduation.webp" decoding="async" alt="Matteo on graduation day with the laurel wreath" loading="lazy" style="object-position: 40% 30%"><figcaption>Graduation day</figcaption></figure>
       </div>
     </div>
   </section>
@@ -982,7 +986,7 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
   intro.classList.remove('boot');
   var seen = false;
   try { seen = sessionStorage.getItem('mb-intro-seen') === '1'; } catch (e) {}
-  if (seen || reduce) { intro.hidden = true; } else { play(); }
+  if (seen || reduce || root.classList.contains('no-intro')) { intro.hidden = true; } else { play(); }
 
   document.getElementById('skip').addEventListener('click', close);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !intro.hidden) close(); });
