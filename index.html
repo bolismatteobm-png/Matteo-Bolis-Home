@@ -26,8 +26,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
-<script>try{if(innerWidth<=640||sessionStorage.getItem('mb-intro-seen')==='1'||matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('no-intro')}catch(e){document.documentElement.classList.add('no-intro')}</script>
-<style>.no-intro #intro{display:none!important}</style>
+<script>try{if(sessionStorage.getItem('mb-intro-seen')==='1'||matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('no-intro')}catch(e){document.documentElement.classList.add('no-intro')}</script>
+<style>.no-intro #intro{display:none!important}
+.intro.fast{transition-duration:.45s}.intro.fast .panel{transition-duration:.3s}.intro.fast .panel .line{transition-duration:.2s,.25s;transition-delay:.1s,.1s}.intro.fast .intro-logo{transition-duration:.35s,.15s;transition-delay:.05s,.05s}.intro.fast .intro-name{transition-duration:.3s}</style>
 <link rel="preload" as="image" href="photos/me-dolomites.webp" fetchpriority="high">
 <style>
 /* Layout concept: a pop sticker-book. Thick ink outlines, hard offset shadows,
@@ -972,14 +973,18 @@ footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-cont
     typed.textContent = '';
     void intro.offsetWidth;
     intro.classList.add('s1');
+    // Short version on phones (~1.5s), full version on larger screens.
+    var fast = window.innerWidth <= 640;
+    var T = fast ? { c0: 40, c: 18, s2: 380, s3: 680, s4: 980, s5: 1150, end: 1500 } : { c0: 120, c: 55, s2: 1250, s3: 2400, s4: 3550, s5: 4250, end: 5400 };
+    intro.classList.toggle('fast', fast);
     for (var i = 0; i < text.length; i++) {
-      (function (n) { later(function () { typed.textContent = text.slice(0, n + 1); }, 120 + n * 55); })(i);
+      (function (n) { later(function () { typed.textContent = text.slice(0, n + 1); }, T.c0 + n * T.c); })(i);
     }
-    later(function () { intro.classList.add('s2'); }, 1250);
-    later(function () { intro.classList.add('s3'); }, 2400);
-    later(function () { intro.classList.add('s4'); }, 3550);
-    later(function () { intro.classList.add('s5'); }, 4250);
-    later(close, 5400);
+    later(function () { intro.classList.add('s2'); }, T.s2);
+    later(function () { intro.classList.add('s3'); }, T.s3);
+    later(function () { intro.classList.add('s4'); }, T.s4);
+    later(function () { intro.classList.add('s5'); }, T.s5);
+    later(close, T.end);
     document.getElementById('skip').focus({ preventScroll: true });
   }
 
